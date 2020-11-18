@@ -5,17 +5,17 @@ body {
 table {
 	margin: auto;
 	margin-top:20px;
-    text-align: center;
-    max-width:600px;
+    text-align: left;
+    width: 600px !important;
 }
 
 h1 {
-	color: white;
+	color: rgb(189, 131, 24);
 	text-align: center;
 }
 
 h2 {
-	color: white;
+	color: rgb(189, 131, 24);
 	text-align: center;
 }
 
@@ -59,5 +59,13 @@ form {
 
 .btn {
 	margin-left: 1px;
+}
+
+th{
+	font-size:115%;
+}
+
+td{
+	font-size: 105%;
 }
 
