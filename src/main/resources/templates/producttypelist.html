@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Product Types</title>
+    <meta charset="UTF-8">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/main.css">
+</head>
+<body>
+<h1>Product Types</h1>
+<table class="table table-dark">
+	<tr> 
+		<th> Product Type <th>
+		
+	</tr>
+		<tr th:each= "producttype : ${producttypes}">
+		<td th:text="${producttype.getProductType()}"> ProductType </td>
+		<td> </td>
+	</tr>
+</table>
+<a class= "btn btn-dark newbutton" href="/createProducttype"> New product type </a>
+
+</body>
+</html>

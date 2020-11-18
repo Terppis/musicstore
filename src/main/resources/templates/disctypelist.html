@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Music store</title>
+    <meta charset="UTF-8">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/main.css">
+</head>
+<body>
+<h1>Disc types</h1>
+<table class="table table-dark">
+	<tr> 
+		<th> Disc type <th>
+		
+	</tr>
+		<tr th:each= "disctype : ${disctypes}">
+		<td th:text="${disctype.getDiscType()}"> DiscType </td>
+		<td> </td>
+	</tr>
+</table>
+<a class= "btn btn-dark newbutton" href="/create"> New disc type </a>
+
+</body>
+</html>

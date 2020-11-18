@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Music store</title>
+    <meta charset="UTF-8">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	 <link rel="stylesheet" href="/main.css">
+</head>
+<body>
+<h1> Edit disc </h1>
+<div class="editdisc">
+<form th:object="${disc}" action="#" th:action="@{/save}" method="post">
+
+        <label class="header"> </label>
+        <input type="hidden" class="form-control" id="id" th:field="*{id}"/>
+
+        <label class="header">Title </label>
+        <input type="text" class="form-control" id="title" th:field="*{title}">
+
+        <label class="header">Artist </label>
+        <input id="artist" class="form-control" th:field="*{artist}">
+
+        <label class="header">ReleaseYear </label>
+        <input id="releaseyear" class="form-control" th:field="*{releaseYear}">
+    
+        <label class="header">Price </label>
+        <input id="price" class="form-control" th:field="*{price}">
+    
+        <label class="header">Genre </label>
+        <input id="genre" class="form-control" th:field="*{genre}">
+        
+        <label class="header">Tracks </label>
+        <input id="tracks" class="form-control" th:field="*{tracks}">
+        
+        <label for="disctypelist" class="header">Disc type</label>
+			 <select id="disctypelist" th:field="*{disctype}" class="form-control">
+       			<option th:each="disctype: ${disctypes}" th:value="${disctype.type_id}" th:text="${disctype.discType}"></option>
+    		</select>
+        <br>
+
+        <input type="reset" class="form-control" value="Reset"/>
+        <br>
+        <input type="submit" class="form-control" value="save changes"/>
+        <br>
+        <div class="clear"></div>
+        
+</form>
+</div>
+</body>
+</html>

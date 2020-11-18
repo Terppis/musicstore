@@ -1,0 +1,37 @@
+
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add product</title>
+    <meta charset="UTF-8">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+     <link rel="stylesheet" href="/main.css">
+</head>
+<body>
+	<h1>Add fan product</h1>
+	<div>
+		<form th:object="${fanproduct}" th:action="@{saveProduct}" action="#" method="post">
+		  	<label for="productname"> Product name</label>
+			<input type="text" class="form-control" id="productname" th:field="*{productName}" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+		  	<label for="price">Price</label>
+			<input type="text" class="form-control" id="price" th:field="*{price}" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+		  	<label for="artist">Artist</label>
+			<input type="text" class="form-control" id="artist" th:field="*{artist}" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+			<label for="product">Product</label>
+			<input type="text" class="form-control" id="product" th:field="*{product}" />
+			<div style="clear: both; display: block; height: 10px;"></div>	
+								
+		  	<label class="header "for="producttypelist">Product Type</label>
+			 <select id="producttypelist" th:field="*{producttype}" class="form-control">
+       			<option th:each="producttype: ${producttypes}" th:value="${producttype.ptype_id}" th:text="${producttype.productType}"></option>
+    		</select>
+			
+			<div style="clear: both; display: block; height: 10px;"></div>
+			<input type="submit" class="form-control" value="Save"></input>
+		</form>
+	</div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Music Store</title>
+    <meta charset="UTF-8">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	 <link rel="stylesheet" href="/main.css">
+</head>
+<body>
+<h1> Edit product </h1>
+
+<div class="editfanproduct">
+	<form th:object="${fanproduct}" action="#" th:action="@{/saveProduct}" method="post">
+
+        <label class="header"> </label>
+        <input type="hidden" class="form-control" id="id" th:field="*{id}"/>
+
+        <label class="header">Product name </label>
+        <input type="text" class="form-control" id="productname" th:field="*{productName}">
+
+        <label class="header">Price </label>
+        <input id="price" class="form-control" th:field="*{price}">
+
+        <label class="header">Artist </label>
+        <input id="artist" class="form-control" th:field="*{artist}">
+    
+        <label class="header">Product </label>
+        <input id="product" class="form-control" th:field="*{product}">
+        
+        <label class="header" for="producttypelist">Product Type</label>
+			 <select id="producttypelist" th:field="*{producttype}" class="form-control">
+       			<option th:each="producttype: ${producttypes}" th:value="${producttype.ptype_id}" th:text="${producttype.productType}"></option>
+    		</select>
+    		
+        <br>
+
+        <input type="reset" class="form-control" value="Reset"/>
+        <br>
+        <input type="submit" class="form-control" value="save changes"/>
+        <br>
+        <div class="clear"></div>
+        
+</form>
+</div>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <title>Music store</title>
+    <meta charset="UTF-8">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<h1> Music Discs</h1>
+<h2 th:inline="text">Welcome [[${#httpServletRequest.remoteUser}]]</h2>
+<div class="col-md-4" style="padding:20px 0">
+		<form th:action="@{/logout}" method="post">
+			<input type="submit" value="Sign Out" class="btn btn-sm btn-danger sign"/>
+		</form>
+		<a class="btn btn-success sign2" href="/login"> Sign In</a>
+	</div>
+<table class="table table-dark">
+	<tr> 
+		<th> Title <th>
+		<th> Artist <th>
+		<th> Release year <th>
+		<th> Price<th>
+		<th> Genre <th>
+		<th> Tracks <th>
+		<th> Disc type <th>
+		<th sec:authorize="hasAuthority('ADMIN')"> </th>
+	</tr>
+		
+		<tr th:each= "disc : ${discs}">
+		<td th:text="${disc.getTitle()}"> Title </td>
+		<td> </td>
+		<td th:text="${disc.getArtist()}"> Artist</td>
+		<td> </td>
+		<td th:text="${disc.getReleaseYear()}"> ReleaseYear</td>
+		<td> </td>
+		<td th:text="${disc.getPrice()}"> Price</td>
+		<td> </td>
+		<td th:text="${disc.getGenre()}"> Genre</td>
+		<td> </td>
+		<td th:text="${disc.getTracks()}"> Tracks</td>
+		<td> </td>
+		<td th:text="${disc.disctype.discType}"> DiscType </td>
+		<td> </td>
+		<td sec:authorize="hasAuthority('ADMIN')"> <a class= "btn btn-sm btn-danger buttons" th:href="@{/delete/{id}(id=${disc.id})}"> Delete </a></td> 
+		<td> <a class= "btn btn-primary buttons" th:href="@{/edit/{id}(id=${disc.id})}"> Edit </a></td>
+	</tr>
+</table>
+<a class= "btn btn-dark reference1" href="/add"> New disc </a>
+<a class= "btn btn-dark reference" href="/fanproductlist"> Fan products </a>
+
+</body>
+</html>
