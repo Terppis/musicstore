@@ -5,7 +5,7 @@ body {
 table {
 	margin: auto;
     text-align: left;
-    max-width: 1150px;
+    max-width: 1200px;
 }
 
 h1 {
@@ -49,7 +49,7 @@ form {
     text-decoration: none;
     color: rgb(189, 131, 24);
     font-size: 120%;
-    margin-left: 420px !important;
+    margin-left: 400px !important;
     text-align: center;
 }
 
