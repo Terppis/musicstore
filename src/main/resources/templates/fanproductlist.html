@@ -10,10 +10,10 @@
 <h1> Fan products</h1>
 <h2 th:inline="text">Welcome [[${#httpServletRequest.remoteUser}]]</h2>
 <div class="col-md-4" style="padding:20px 0">
-		<form th:action="@{/logout}" method="post">
+		<form sec:authorize="isAuthenticated()" th:action="@{/logout}" method="post">
 			<input type="submit" value="Sign Out" class="btn btn-sm btn-danger sign"/>
 		</form>
-		<a class="btn btn-success sign2" href="/login"> Sign In</a>
+		<a sec:authorize="!isAuthenticated()" class="btn btn-success sign2" href="/login"> Sign In</a>
 	</div>
 <table class="table table-dark">
 	<tr> 
