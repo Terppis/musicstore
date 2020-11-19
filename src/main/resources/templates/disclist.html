@@ -43,10 +43,10 @@
 		<td th:text="${disc.disctype.discType}"> DiscType </td>
 		<td> </td>
 		<td sec:authorize="hasAuthority('ADMIN')"> <a class= "btn btn-sm btn-danger buttons" th:href="@{/delete/{id}(id=${disc.id})}"> Delete </a></td> 
-		<td> <a class= "btn btn-primary buttons" th:href="@{/edit/{id}(id=${disc.id})}"> Edit </a></td>
+		<td sec:authorize="isAuthenticated()"> <a class= "btn btn-primary buttons" th:href="@{/edit/{id}(id=${disc.id})}"> Edit </a></td>
 	</tr>
 </table>
-<a class= "btn btn-dark reference1" href="/add"> New disc </a>
+<a sec:authorize="isAuthenticated()" class= "btn btn-dark reference1" href="/add"> New disc </a>
 <a class= "btn btn-dark reference" href="/fanproductlist"> Fan products </a>
 
 </body>

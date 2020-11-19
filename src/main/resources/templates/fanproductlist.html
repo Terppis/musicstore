@@ -37,11 +37,11 @@
 		<td th:text="${fanproduct.producttype.productType}"> ProductType</td>
 		<td> </td>
 		<td sec:authorize="hasAuthority('ADMIN')"> <a class= "btn btn-sm btn-danger buttons" th:href="@{/deleteProduct/{id}(id=${fanproduct.id})}"> Delete </a></td> 
-		<td> <a class= "btn btn-primary buttons" th:href="@{/editProduct/{id}(id=${fanproduct.id})}"> Edit </a></td>
+		<td sec:authorize="isAuthenticated()"> <a class= "btn btn-primary buttons" th:href="@{/editProduct/{id}(id=${fanproduct.id})}"> Edit </a></td>
 	</tr>
 </table>
-<a class= "btn btn-dark reference1" href="/addProduct" role="button"> New fan product </a>
-<a class="btn btn-dark reference" href="/disclist" role="button"> Shop for discs </a>
+<a sec:authorize="isAuthenticated()" class= "btn btn-dark reference1" href="/addProduct" role="button"> New fan product </a>
+<a  class="btn btn-dark reference" href="/disclist" role="button"> Shop for discs </a>
 
 </body>
 </html>
